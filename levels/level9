@@ -1,0 +1,7 @@
+LEVEL_NO=9
+PASSWORD=UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org "strings data.txt | grep '===\+' | tail -n 1  | cut -d' ' -f2"

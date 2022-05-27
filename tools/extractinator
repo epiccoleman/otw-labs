@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+function main() {
+    wd=extractinator_work_dir
+
+    rm -rf $wd
+
+    mkdir -p $wd
+    cp ~/data.txt $wd
+
+    cd $wd
+
+    xxd -r data.txt > data0.archive
+
+    archive_number=0
+    active_archive=data${archive_number}.archive
+
+    while [[ $(file $active_archive | cut -d " " -f2) != "ASCII" ]]; do
+        new_archive=data$(($archive_number + 1)).archive
+        archive_type=$(file $active_archive | cut -d" " -f2)
+
+        echo "active archive: $active_archive"
+        echo "archive type: $archive_type"
+
+        case $archive_type in
+            gzip)
+                gunzip --keep --stdout --suffix archive $active_archive > $new_archive
+                ;;
+            bzip2)
+                bunzip2 --keep --stdout $active_archive > $new_archive
+                ;;
+            POSIX) #this really means "tar"
+                tar xvf $active_archive --to-stdout > $new_archive
+                ;;
+            *)
+                echo "$archive_type not implemented"
+                exit 1
+                ;;
+        esac
+        active_archive=$new_archive
+        archive_number=$(($archive_number + 1))
+    done
+
+    echo "Finished decompression, resulting file was $active_archive"
+    cat $active_archive
+}
+
+main

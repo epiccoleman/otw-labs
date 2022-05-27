@@ -1,0 +1,4 @@
+figlet "level 6"
+echo "pass is DXjZPULLxYr17uwoI01bNLQbtFemEgo7"
+echo "DXjZPULLxYr17uwoI01bNLQbtFemEgo7" | pbcopy
+ssh -p 2220 bandit6@bandit.labs.overthewire.org 'cat $(find / -type f -size 33c -group bandit6 -user bandit7 2>/dev/null )'

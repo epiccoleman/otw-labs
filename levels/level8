@@ -1,0 +1,8 @@
+LEVEL_NO=8
+PASSWORD=cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org "sort data.txt | uniq -u"

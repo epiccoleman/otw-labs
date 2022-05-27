@@ -1,0 +1,4 @@
+figlet "level 4"
+echo "pass is pIwrPrtPN36QITSp3EQaw936yaFoFgAB"
+echo "pIwrPrtPN36QITSp3EQaw936yaFoFgAB" | pbcopy
+ssh -p 2220 bandit4@bandit.labs.overthewire.org "cat inhere/-file07"

@@ -1,0 +1,8 @@
+LEVEL_NO=7
+PASSWORD=HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org 'grep millionth data.txt | cut -f2'

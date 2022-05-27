@@ -1,0 +1,12 @@
+6:
+learned about a few "find" predicates like -size, -group, and -user. also learned a bit about the -exec option which can execute a command against the filenames find ... finds
+
+9:
+learned about the "strings" command, which would probably be interesting to run against lots of different binary files. for example if you run `strings $(which uniq)` it'll print out some strings that are defined in there - some error messages and a usage message
+
+11:
+learned about 'tr' which i always thought was "trim" but is actually "translate". tr takes two sets and maps the input onto the output set. so for example, the tr in level11 was this:
+`tr [A-Za-z] [M-ZA-Mm-za-m], which implements a rot13. the tricky thing here is that it doesn't seem to specify anywhere in the man page that you can concatenate set ranges like we do in the second set,but, well, apparently you can.
+
+12:
+wrote a pretty cool script for this one: tools/extractinator. Getting to be close to time to start using a better lang for this kind of thing I think.

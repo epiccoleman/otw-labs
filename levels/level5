@@ -1,0 +1,4 @@
+figlet "level 5"
+echo "pass is koReBOKuIDDepwhWk7jZC0RTdopnAYKh"
+echo "koReBOKuIDDepwhWk7jZC0RTdopnAYKh" | pbcopy
+ssh -p 2220 bandit5@bandit.labs.overthewire.org 'cat $(find ./inhere -type f -size 1033c ! -executable )'

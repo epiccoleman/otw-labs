@@ -1,0 +1,17 @@
+LEVEL_NO=12
+PASSWORD=5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+figlet "Hey read this:"
+
+cat <<HEREDOC
+This one takes some manual labor because it needed a moderately complex script.
+
+You will need to run the "extractinor" script in the tools directory for this level.
+
+Copy it to a working directory in /tmp and run it to produce the password.
+
+Run ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org to connect to Level 12.
+HEREDOC

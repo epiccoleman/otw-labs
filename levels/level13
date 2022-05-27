@@ -1,0 +1,7 @@
+LEVEL_NO=13
+PASSWORD=8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org

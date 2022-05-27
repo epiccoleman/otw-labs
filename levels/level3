@@ -1,0 +1,4 @@
+figlet "level 3"
+echo "pass is UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK"
+echo "UmHadQclWmgdLOKQ3YNgjWxGoRMb5lu" | pbcopy
+ssh -p 2220 bandit3@bandit.labs.overthewire.org "cat inhere/.hidden"
