@@ -4,9 +4,40 @@ learned about a few "find" predicates like -size, -group, and -user. also learne
 9:
 learned about the "strings" command, which would probably be interesting to run against lots of different binary files. for example if you run `strings $(which uniq)` it'll print out some strings that are defined in there - some error messages and a usage message
 
+10:
+base64 -d decodes base64
+
 11:
 learned about 'tr' which i always thought was "trim" but is actually "translate". tr takes two sets and maps the input onto the output set. so for example, the tr in level11 was this:
 `tr [A-Za-z] [M-ZA-Mm-za-m], which implements a rot13. the tricky thing here is that it doesn't seem to specify anywhere in the man page that you can concatenate set ranges like we do in the second set,but, well, apparently you can.
 
 12:
-wrote a pretty cool script for this one: tools/extractinator. Getting to be close to time to start using a better lang for this kind of thing I think.
+learned that you can reassemble a file from a hex dump using xxd. also wrote a pretty cool script for this one: tools/extractinator. Getting to be close to time to start using a better lang for this kind of thing I think.
+
+13:
+this one is cool, basically there are two key insights - one is that there is a private ssh key that belongs to bandit14 in the bandit13 home dir. the other realization is that there is an ssh server running in the default place on the server. once you realize both those two things, you can try to ssh as bandit14 to the localhost and then you're in their account.
+
+so the lesson, i guess, is don't leave your private key lying around!
+
+another lesson, and i had to be spoiled to figure this out, is that the list of services running on a machine's ports is an interesting thing to know. in this case i just ran `nmap localhost` to discover that (after I already knew it).
+
+14:
+ez pz. echo $pw | nc localhost 30000
+
+15:
+big lesson here is that openssl has a tool called s_client which functions something like an ssl 'telnet' or 'nc'
+
+16:
+ports=$(nmap -p31000-32000 localhost | grep "[[:digit:]]\{5\}" | grep -v "host is up" | grep -v filtered | cut -d\/ -f1)
+for port in ${PORTS[@]}; do echo "cluFn7wTiGryunymYOu4RcffSxQluehd" | openssl s_client -ign_eof -connect localhost:$port; done | grep -A30 "Correct!"
+
+one of these returns a private key.
+
+One key thing to learn is that you don't want to mess with the "filtered" port. Once I took that one out of the list I was able to just connect to all the ports with s_client and find the one that returned a private key.
+
+
+
+
+
+
+

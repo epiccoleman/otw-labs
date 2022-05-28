@@ -1,0 +1,17 @@
+LEVEL_NO=16
+PASSWORD=cluFn7wTiGryunymYOu4RcffSxQluehd
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+figlet "READ ME"
+cat <<HEREDOC
+This one took a little manual work, not worth automating.
+
+ports=$(nmap -p31000-32000 localhost | grep "[[:digit:]]\{5\}" | grep -v "host is up" | grep -v filtered | cut -d\/ -f1)
+for port in ${PORTS[@]}; do echo "$PASSWORD" | openssl s_client -ign_eof -connect localhost:$port; done | grep -A30 "Correct!"
+
+you can then use this key to ssh to localhost as bandit17 and then check /etc/bandit_pass/bandit17
+
+Run ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org to connect
+HEREDOC

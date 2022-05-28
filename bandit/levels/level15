@@ -1,0 +1,7 @@
+LEVEL_NO=15
+PASSWORD=BfMYroe26WYalil77FoDi9qh59eK5xNr
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org "echo $PASSWORD | openssl s_client -ign_eof -connect localhost:30001"

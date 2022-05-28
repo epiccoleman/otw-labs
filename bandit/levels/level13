@@ -4,4 +4,19 @@ figlet "level ${LEVEL_NO}"
 echo "pass is ${PASSWORD}"
 echo "${PASSWORD}" | pbcopy
 
-ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org
+figlet "READ ME"
+cat <<HEREDOC
+This one is pretty interesting!
+
+Run ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org to connect to Level 13.
+
+There is a private key file in the home directory which can be used to connect to the local ssh server as bandit14 like so:
+
+ssh -i sshkey.private bandit14@localhost
+
+From here you can run:
+cat /etc/bandit_pass/bandit14
+
+to get the password for level 14
+HEREDOC
+
