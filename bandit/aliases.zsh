@@ -24,3 +24,9 @@ function make(){
     #append content of level-script-template to level_file
     <./levels/level-script-template >> $level_file
 }
+
+function bandoc(){
+    local level=$1
+    figlet "Bandit $level"
+    curl -s https://overthewire.org/wargames/bandit/bandit${level}.html | htmlq "#content" | lynx -stdin -dump | less -FX
+}

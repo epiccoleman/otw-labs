@@ -4,4 +4,4 @@ figlet "level ${LEVEL_NO}"
 echo "pass is ${PASSWORD}"
 echo "${PASSWORD}" | pbcopy
 
-ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org "diff passwords.old passwords.new"
