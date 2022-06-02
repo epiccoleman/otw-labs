@@ -1,7 +1,12 @@
+#!/usr/bin/env bash
+
 LEVEL_NO=20
 PASSWORD=GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 figlet "level ${LEVEL_NO}"
 echo "pass is ${PASSWORD}"
 echo "${PASSWORD}" | pbcopy
 
-ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org
+cat << SCRIPT_HEREDOC | ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org
+echo "$PASSWORD" | nc -l -p 2112 &
+./suconnect 2112;
+SCRIPT_HEREDOC

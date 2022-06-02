@@ -35,8 +35,10 @@ one of these returns a private key.
 
 One key thing to learn is that you don't want to mess with the "filtered" port. Once I took that one out of the list I was able to just connect to all the ports with s_client and find the one that returned a private key.
 
+21:
+neat one. this shows the other side of nc basically - you can feed lines to it, either via a file full of lines or even just an echo. so the solution involves two processes - one that makes an nc 'server' with the previous password as its input, and one which invokes the setuid binary provided.
 
-
+this one was a good chance to learn a bit more about job control as well. i guess now that i figured out a solution it turned out to just require the & operator to background the first task
 
 
 
