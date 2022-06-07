@@ -1,0 +1,17 @@
+LEVEL_NO=23
+PASSWORD=jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+figlet "READ ME"
+cat <<HEREDOC
+
+You will need to add a script to /var/spool/bandit24 and chmod it so it can be executed by anyone.
+The script will run as bandit24 and has access to the bandit24 pw file in /etc/bandit_pass/bandit24
+
+My successful script was "cat /etc/bandit_pass/bandit24 > /tmp/epiccoleman24/pw". This depends on having
+created that directory and file, and having updated the file to be writable by anyone.
+
+Run ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org to connect...
+HEREDOC

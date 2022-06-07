@@ -1,3 +1,5 @@
+LEVEL_NO=25
+PASSWORD=uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 figlet "level ${LEVEL_NO}"
 echo "pass is ${PASSWORD}"
 echo -n "${PASSWORD}" | pbcopy

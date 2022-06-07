@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+LEVEL_NO=22
+PASSWORD=Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+cat << SCRIPT_HEREDOC | ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org
+cat /tmp/$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
+SCRIPT_HEREDOC

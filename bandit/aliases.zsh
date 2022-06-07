@@ -18,7 +18,8 @@ function make(){
         return
     fi
 
-    echo "LEVEL_NO=$level_number" > $level_file
+    echo '#!/usr/bin/env bash' > $level_file
+    echo "LEVEL_NO=$level_number" >> $level_file
     echo "PASSWORD=$level_password" >> $level_file
 
     #append content of level-script-template to level_file
@@ -27,6 +28,7 @@ function make(){
 
 function bandoc(){
     local level=$1
-    figlet "Bandit $level"
-    curl -s https://overthewire.org/wargames/bandit/bandit${level}.html | htmlq "#content" | lynx -stdin -dump | less -FX
+    local actual_level=$(( $level + 1 ))
+    figlet "Bandit $level -> $actual_level"
+    curl -s https://overthewire.org/wargames/bandit/bandit${actual_level}.html | htmlq "#content" | lynx -stdin -dump | less -FX
 }

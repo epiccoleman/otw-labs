@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+LEVEL_NO=1
+PASSWORD=boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org 'cat ./-'

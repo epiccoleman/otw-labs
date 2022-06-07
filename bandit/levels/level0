@@ -1,2 +1,7 @@
-figlet "level 0"
-ssh -p 2220 bandit0@bandit.labs.overthewire.org
+LEVEL_NO=0
+PASSWORD=bandit0
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo -n "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit0@bandit.labs.overthewire.org "cat readme"
