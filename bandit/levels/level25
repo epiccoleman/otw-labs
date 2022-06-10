@@ -1,7 +1,21 @@
+#!/usr/bin/env bash
+
 LEVEL_NO=25
 PASSWORD=uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 figlet "level ${LEVEL_NO}"
 echo "pass is ${PASSWORD}"
 echo -n "${PASSWORD}" | pbcopy
 
+cat <<HEREDOC
+This one is interesting :)
+
+the default shell for bandit26 is /usr/bin/showtext, which simply calls more against a text file in the home directory.
+
+the trick is that more automatically exits if the file fits in the current window. so the _trick_ is to make it so that's not the case by making your window too small for the whole output.
+
+then you can hit 'v' to open the editor of your choice (which is vi by default). from there, you can open the password file for this user (/etc/bandit_pass/bandit26)
+
+I will autoconnect in 15 seconds... read fast :)
+HEREDOC
+sleep 15
 ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org

@@ -44,4 +44,4 @@ this one was a good chance to learn a bit more about job control as well. i gues
 cool one, basic idea is there is a script that runs scripts as bandit24 every minute then deletes them, so you just plop a script in there and wait. one trick is you gotta make your tmp file writable by everyone. you _also_ have to make your script executable by everyone.
 
 24:
-l33t h4x0r - this is honestly pretty easy but feels cool as fuck
+l33t h4x0r - this is honestly pretty easy but feels cool as fuck.
