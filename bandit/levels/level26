@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+LEVEL_NO=26
+PASSWORD=5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo -n "${PASSWORD}" | pbcopy
+
+figlet "READ ME"
+cat <<HEREDOC
+This one is interesting :)
+
+the default shell for bandit26 is /usr/bin/showtext, which simply calls more against a text file in the home directory.
+
+the trick is that more automatically exits if the file fits in the current window. so the _trick_ is to make it so that's not the case by making your window too small for the whole output.
+
+once you get to this point, you can hit v to open the default editor, just like in the previous challenge. now you can `:set shell=bash` and then just use the ! vim command to run the bandit27-do command in the home dir. this can get you a full featured shell, but you can also just cat /etc/bandit_pass/bandit27.
+
+I will autoconnect in 15 seconds... read fast :)
+HEREDOC
+sleep 15
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org

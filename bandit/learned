@@ -45,3 +45,22 @@ cool one, basic idea is there is a script that runs scripts as bandit24 every mi
 
 24:
 l33t h4x0r - this is honestly pretty easy but feels cool as fuck.
+
+25:
+interesting one for sure. check /etc/passwd to see the default shell for bandit26. note that it's /usr/bin/showtext. showtext is just a shell script which alls more.
+
+more automatically exits if the text fits into the terminal, the trick is to make your terminal small enough that it doesn't. Once you do that you can hit v to open vi and then :e to view the password.
+
+HOWEVER - this only helps you a little, since you still have to get a shell to get the password for 27....
+
+so if you know a little about vi, you can use it to open the home directory for bandit26, which contains a binary called bandit27-do.
+
+first guess was to try to run it with the ! command in vi but this appears to use the user's default shell, so no joy there. and the bandit27-do is a binary... so how the f to execute it ...
+
+ah, i was on the right track. the trick is that you can reassign "shell" in vi. so simply run `:set shell=bash` once you're in vim, then you can `! ~/bandit27-do cat /etc/bandit_pass/bandit27`
+
+32:
+this is tricky, you have to run "$0" to re-invoke sh and escape uppershell
+
+
+FINISHED! hellz yeah

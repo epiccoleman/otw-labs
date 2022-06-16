@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+LEVEL_NO=29
+PASSWORD=bbc96594b4e001778eee9975372716b2
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo -n "${PASSWORD}" | pbcopy
+
+cat << 'HEARDOK'
+you'll need to do this manually because of a few steps that require interactivity, but here's the idea anyway
+
+D=$(mktemp -d)
+cd $D
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+cd repo
+git checkout dev # morla committed the password
+cat README.md | grep password | cut -d ' ' -f 3
+HEARDOK
+

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+LEVEL_NO=31
+PASSWORD=47e603bb428404d265f59c42920d81e5
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo -n "${PASSWORD}" | pbcopy
+
+figlet "READ ME"
+cat << 'HEARDOK'
+you'll need to do this manually because of a few steps that require interactivity, but here's the idea anyway
+
+D=$(mktemp -d)
+cd $D
+git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+
+then follow instructions in the readme
+
+HEARDOK
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+LEVEL_NO=32
+PASSWORD=56a9bf19c63d650ce78e6ec0354ee45e
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo -n "${PASSWORD}" | pbcopy
+
+figlet "READ ME"
+cat << 'HEARDOK'
+when you get into uppershell, enter "$0" which expands to sh and escapes you
+HEARDOK
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org

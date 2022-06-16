@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+LEVEL_NO=33
+PASSWORD=c9c3199ddf4121b10cf581a98d51caee
+figlet "level ${LEVEL_NO}"
+echo "pass is ${PASSWORD}"
+echo -n "${PASSWORD}" | pbcopy
+
+ssh -p 2220 bandit${LEVEL_NO}@bandit.labs.overthewire.org
